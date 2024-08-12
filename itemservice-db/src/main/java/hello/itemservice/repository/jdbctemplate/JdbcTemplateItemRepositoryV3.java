@@ -52,7 +52,7 @@ public class JdbcTemplateItemRepositoryV3 implements ItemRepository {
     @Override
     public void update(Long itemId, ItemUpdateDto updateParam) {
         String sql = "update item " +
-                "set item_name=:itemName, price=:price, quantity=:quantity where id=?";
+                "set item_name=:itemName, price=:price, quantity=:quantity where id= :id";
 
         // 케이스 2
         SqlParameterSource param = new MapSqlParameterSource()
@@ -66,7 +66,7 @@ public class JdbcTemplateItemRepositoryV3 implements ItemRepository {
 
     @Override
     public Optional<Item> findById(Long id) {
-        String sql = "select id, item_name, price, quantity from item where id =?";
+        String sql = "select id, item_name, price, quantity from item where id = :id";
         try {
             // 케이스 3
             Map<String, Object> param = Map.of("id", id);
