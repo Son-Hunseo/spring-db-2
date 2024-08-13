@@ -85,7 +85,7 @@ public class JpaItemRepository implements ItemRepository {
         if (maxPrice != null) {
             query.setParameter("maxPrice", maxPrice);
         }
-        
+
         return query.getResultList();
     }
 }
